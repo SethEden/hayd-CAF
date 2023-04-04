@@ -1,9 +1,9 @@
 /**
- * @file rulesLibrary.js
- * @module rulesLibrary
- * @description Contains all of the plugin defined business rules as a map between function names and function calls.
- * @requires module:selectorConstruction
- * @requires module:plugin.business.constants
+ * @file commandsLibrary.js
+ * @module commandsLibrary
+ * @description Contains all of the plugin defined commands as a map between function names and function calls.
+ * @requires module:dCafCommands
+ * @requires module:plugin.command.constants
  * @requires module:plugin.constants
  * @requires module:loggers
  * @requires module:pluginData
@@ -15,24 +15,24 @@
  */
 
 // Internal imports
-import selectorConstruction from './rules/selectorConstruction.js';
-import * as plg_biz from '../constants/plugin.business.constants.js';
+import dCafCommands from './commands/dCafCommands.js';
+import * as plg_cmd from '../constants/plugin.command.constants.js';
 import * as plg from '../constants/plugin.constants.js';
-import loggers from '../executrix/loggers.js';
-import D from '../structures/pluginData.js';
+import loggers from '../../executrix/loggers.js';
+import D from '../../structures/pluginData.js';
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';
 
 const {bas, msg, sys, wrd} = hayConst;
 const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
-// plugins.hayD-CAF.businessRules.rulesLibrary.
-const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + sys.cbusinessRules + bas.cDot + baseFileName + bas.cDot;
+// plugins.hayD-CAF.commandsBlob.commandsLibrary.
+const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + sys.ccommandsBlob + bas.cDot + baseFileName + bas.cDot;
 
 /**
- * @function initPluginRulesLibrary
- * @description Initializes an objet map of plugin business rules and plugin function calls and returns them.
- * @return {object} A JSON object that contains an array of function objects that map function name to function call for all the business rules.
+ * @function initPluginCommandsLibrary
+ * @description Initializes an object map of plugin commands and plugin function calls and returns them.
+ * @return {object} A JSON object that contains an array of function objects that map function name to function call for all of the commands.
  * @author Seth Hollingsead
  * @date 2023/04/03
  * @NOTE Please be aware that the Commands and BusinessRules data fields in the
@@ -40,19 +40,19 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + s
  * This is because the functions cannot really be serialized in any way. It actually kind of makes sense,
  * but could be really confusing if you are struggling, trying to debug commands or business rules that do not appear to exist.
  */
-async function initPluginRulesLibrary() {
-  // let functionName = initPluginRulesLibrary.name;
+async function initPluginCommandsLibrary() {
+  // let functionName = initPluginCommandsLibrary.name;
   // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
   let returnData = {};
-  returnData[sys.cbusinessRules] = {};
-  returnData[sys.cbusinessRules] = {
-    // Business Rules
+  returnData[wrd.ccommands] = {};
+  returnData[wrd.ccommands] = {
+    // Commands
     // ***********************************************************************
-    // BEGIN selectorConstruction category
+    // BEGIN d-CafCommands category
     // ***********************************************************************
-    [plg_biz.cmapSelectorMetaDataToBusinessRule]: (inputData, inputMetaData) => pluginOneRules.mapSelectorMetaDataToBusinessRule(inputData, inputMetaData)
+    [plg_cmd.cbuildBrowserActionFunction]: (inputData, inputMetaData) => pluginOneCommands.buildBrowserActionFunction(inputData, inputMetaData)
     // ***********************************************************************
-    // END selectorConstruction category
+    // END d-CafCommands category
     // ***********************************************************************
   };
   // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
@@ -61,5 +61,5 @@ async function initPluginRulesLibrary() {
 }
 
 export default {
-  initPluginRulesLibrary
+  initPluginCommandsLibrary
 };

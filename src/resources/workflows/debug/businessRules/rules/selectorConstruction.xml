@@ -2,12 +2,12 @@
   <debug>
     <businessRules>
       <rules>
-        <hayd-CafRules>
+        <dCafRules>
           <Workflow Name="selectorConstructionEnable" Value="changeConfigSetting debugSetting.plugins.hayD-CAF.businessRules.rules.selectorConstruction true"/>
           <Workflow Name="selectorConstructionDisable" Value="changeConfigSetting debugSetting.plugins.hayD-CAF.businessRules.rules.selectorConstruction false"/>
           <Workflow Name="mapSelectorMetaDataToBusinessRuleEnable" Value="changeConfigSetting debugSetting.plugins.hayD-CAF.businessRules.rules.selectorConstruction.mapSelectorMetaDataToBusinessRule true"/>
           <Workflow Name="mapSelectorMetaDataToBusinessRuleDisable" Value="changeConfigSetting debugSetting.plugins.hayD-CAF.businessRules.rules.selectorConstruction.mapSelectorMetaDataToBusinessRule false"/>
-        </hayd-CafRules>
+        </dCafRules>
       </rules>
     </businessRules>
   </debug>

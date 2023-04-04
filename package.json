@@ -28,5 +28,11 @@
   "bugs": {
     "url": "https://github.com/SethEden/hayd-CAF/issues"
   },
-  "homepage": "https://github.com/SethEden/hayd-CAF#readme"
+  "homepage": "https://github.com/SethEden/hayd-CAF#readme",
+  "dependencies": {
+    "@haystacks/async": "^0.2.7",
+    "@haystacks/constants": "^0.2.7",
+    "dotenv": "^16.0.3",
+    "moment": "^2.29.4"
+  }
 }
