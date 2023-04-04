@@ -61,10 +61,92 @@ async function getLogFileNameAndPath(haystacksConfigData) {
 
 /**
  * @function consoleLog
- * @description 
- * @param {*} classPath 
- * @param {*} message 
+ * @description Logs out to the console, and to the same current Haystacks-application log file.
+ * @param {string} classPath The class pass from which this console log function was called from.
+ * @param {string} message The message and/or data that should be logged to the console, and the log file.
+ * @return {void}
+ * @author Seth Hollingsead
+ * @date 2023/04/04
  */
 async function consoleLog(classPath, message) {
+  // let functionName = consoleLog.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // classPath is:
+  // console.log(msg.cclassPathIs + classPath);
+  // message is:
+  // console.log(msg.cmessageIs + message);
+  let newMessage = '';
+  if (message.includes(bas.cDoublePercent) === true) {
+    // Replace the double percent with the class path.
+    newMessage = message.replaceAll(bas.cDoublePercent, classPath);
+  } else {
+    newMessage = message;
+  }
+  console.log(newMessage);
+  let dateTimeStamp = await getNowMoment(gen.cYYYY_MM_DD_HH_mm_ss_SSS);
+  await appendMessageToFile(`${dateTimeStamp}: ${plg.cpluginName}: ${newMessage}`);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
+}
 
+/**
+ * @function appendMessageToFile
+ * @description Opens a file and appends a message to the file, then closes the file.
+ * @param {string} message The message that should be appended to the log file.
+ * @return {void}
+ * @author Seth Hollingsead
+ * @date 2023/04/04
+ */
+async function appendMessageToFile(message) {
+  // let functionName = appendMessageToFile.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // message is:
+  // console.log(msg.cmessageIs + message);
+  let fd;
+  let filePathAndName = D[wrd.cdata][cfg.cLogFilePathAndName];
+  if (message && filePathAndName) {
+    try {
+      // open the file sync:
+      // console.log(msg.copenFileSyncMessage + filePathAndName);
+      fd = fs.openSync(filePathAndName, bas.ca);
+      // append to the file sync:
+      // console.log(msg.cappendFileSyncMessage + filePathAndName);
+      fs.appendFileSync(fd, message + bas.cCarriageReturn + bas.cNewLine, gen.cUTF8);
+      // DONE appending to the file:
+      // console.log(msg.cDoneAppendingToFileMessage + filePathAndName);
+    } catch (err) {
+      console.log(err.message);
+    } finally {
+      if (fd !== undefined) {
+        fs.closeSync(fd);
+      }
+    }
+  }
+  // console.log(`END ${namespacePrefix}${functionName} function`);
+}
+
+/**
+ * @function getNowMoment
+ * @description Returns a time stamp string formatted according to the input formatting string.
+ * @param {string} formatString The formatting string, that tells moment in what format to
+ * return the value for the day, month, year, hour, minute, second, and millisecond.
+ * @return {string} A time stamp string that has been formatted according to the input format.
+ * @author Seth Hollingsead
+ * @date 2023/04/04
+ */
+async function getNowMoment(formatString) {
+  // let functionName = getNowMoment.name;
+  // console.log(`BEGIN ${namespacePrefix}${functionName} function`);
+  // formatString is:
+  // console.log(msg.cformatStringIs + formatString);
+  let returnData = '';
+  returnData = moment().format(formatString);
+  // console.log(msg.creturnDataIs + returnData);
+  // console.log(`END ${namespacePrefix}${functionName} function`);
+  return returnData;
+}
+
+export default {
+  getLogFileNameAndPath,
+  consoleLog,
+  appendMessageToFile
 }
