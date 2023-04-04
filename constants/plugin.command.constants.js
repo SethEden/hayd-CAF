@@ -15,4 +15,4 @@ const {bas, num, wrd} = hayConst;
 // ********************************
 // hayD-CAF commands in order
 // ********************************
-export const cDcafCommand01 = bas.cDc + bas.caf + wrd.cCommand + num.c01; // DcafCommand01
+export const cbuildBrowserActionFunction = wrd.cbuild + wrd.cBrowser + wrd.cAction + wrd.cFunction; // buildBrowserActionFunction

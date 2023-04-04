@@ -15,4 +15,4 @@ const {bas, num, wrd} = hayConst;
 // ********************************
 // hayD-CAF rules in order
 // ********************************
-export const cDcafRule01 = bas.cDc + bas.caf + wrd.cRule + num.c01; // DcafRule01
+export const cmapSelectorMetaDataToBusinessRule = wrd.cmap + wrd.cSelector + wrd.cMetaData + wrd.cTo + wrd.cBusiness + wrd.cRule; // mapSelectorMetaDataToBusinessRule
