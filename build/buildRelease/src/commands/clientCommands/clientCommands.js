@@ -140,13 +140,14 @@ async function deployApplication(inputData, inputMetaData) {
   await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + JSON.stringify(inputData));
   await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
   let returnData = [true, false];
+
+  // await haystacks.setConfigurationSetting(wrd.csystem, cfg.cpassAllConstantsValidation, true);
+  // await haystacks.setConfigurationSetting(wrd.csystem, cfg.cpassedAllCommandAliasesDuplicateChecks, true);
+  // await haystacks.setConfigurationSetting(wrd.csystem, cfg.cpassedAllWorkflowDuplicateChecks, true);
+
   let passAllConstantsValidation = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cpassAllConstantsValidation);
   let passAllCommandAliasesDuplicateChecks = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cpassedAllCommandAliasesDuplicateChecks);
   let passAllWorkflowDuplicateChecks = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cpassedAllWorkflowDuplicateChecks);
-
-  // let passAllConstantsValidation = true;
-  // let passAllCommandAliasesDuplicateChecks = true;
-  // let passAllWorkflowDuplicateChecks = true;
 
   if (passAllConstantsValidation === true && passAllCommandAliasesDuplicateChecks === true && passAllWorkflowDuplicateChecks === true) {
     // DEPLOY APPLICATION
@@ -155,11 +156,11 @@ async function deployApplication(inputData, inputMetaData) {
     let sourcePath = '';
     let destinationPath = '';
     if (await haystacks.getConfigurationSetting(wrd.csystem, sys.cPluginName) !== '') {
-      rootPath = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cpluginRootPath)
+      rootPath = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cpluginRootPath);
       sourcePath = rootPath + await haystacks.getConfigurationSetting(wrd.csystem, app_cfg.csourcePath);
       destinationPath = rootPath + await haystacks.getConfigurationSetting(wrd.csystem, app_cfg.cdestinationPath);
     } else {
-      rootPath = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cframeworkRootPath)
+      rootPath = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cframeworkRootPath);
       sourcePath = rootPath + await haystacks.getConfigurationSetting(wrd.csystem, app_cfg.csourcePath);
       destinationPath = rootPath + await haystacks.getConfigurationSetting(wrd.csystem, app_cfg.cdestinationPath);
     }
@@ -218,10 +219,21 @@ async function releaseApplication(inputData, inputMetaData) {
   if (passAllConstantsValidation === true && passAllCommandAliasesDuplicateChecks === true && passAllWorkflowDuplicateChecks === true) {
     // RELEASE APPLICATION
     console.log(msg.cRELEASE_APPLICATION);
-    let frameworkRootPath = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cframeworkRootPath)
+    
+    let rootPath = '';
+    let sourcePath = '';
+    let destinationPath = '';
+    if (await haystacks.getConfigurationSetting(wrd.csystem, sys.cPluginName) !== '') {
+      rootPath = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cpluginRootPath);
+    } else {
+      rootPath = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cframeworkRootPath)
+    }
+    
     // NOTE: The destinationResourcesPath works out to be the root/bin of the framework, for this next operation that will be our source path.
-    let sourcePath = frameworkRootPath + await haystacks.getConfigurationSetting(wrd.csystem, app_cfg.cdestinationResourcesPath);
-    let destinationPath = frameworkRootPath + await haystacks.getConfigurationSetting(wrd.csystem, app_cfg.creleasePath);
+    sourcePath = rootPath + await haystacks.getConfigurationSetting(wrd.csystem, app_cfg.cdestinationResourcesPath);
+    destinationPath = rootPath + await haystacks.getConfigurationSetting(wrd.csystem, app_cfg.creleasePath);
+    sourcePath = path.normalize(sourcePath);
+    destinationPath = path.normalize(destinationPath);
     // sourcePath is:
     await haystacks.consoleLog(namespacePrefix, functionName, app_msg.csourcePathIs + sourcePath);
     // destinationPath is:
