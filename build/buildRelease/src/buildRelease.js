@@ -67,6 +67,7 @@ async function bootStrapApplication() {
   if (NODE_ENV === wrd.cdevelopment) {
     appConfig = {
       FrameworkName: apc.cExpectedActualFrameworkDevName,
+      PluginName: apc.cExpectedActualPluginDevName,
       clientRootPath: rootPath,
       appConfigResourcesPath: rootPath + apc.cFullDevResourcesPath,
       appConfigReferencePath: rootPath + apc.cFullDevConfigurationPath,
@@ -81,6 +82,7 @@ async function bootStrapApplication() {
   } else if (NODE_ENV === wrd.cproduction) {
     appConfig = {
       FrameworkName: apc.cExpectedActualFrameworkProdName,
+      PluginName: apc.cExpectedActualPluginProdName,
       clientRootPath: rootPath,
       appConfigResourcesPath: rootPath + apc.cFullProdResourcesPath,
       appConfigReferencePath: rootPath + apc.cFullProdConfigurationPath,
@@ -97,6 +99,7 @@ async function bootStrapApplication() {
     console.log(msg.cApplicationWarningMessage1a + msg.cApplicationWarningMessage1b);
     appConfig = {
       FrameworkName: apc.cExpectedActualFrameworkDevName,
+      PluginName: apc.cExpectedActualPluginDevName,
       clientRootPath: rootPath,
       appConfigResourcesPath: rootPath + apc.cFullDevResourcesPath,
       appConfigReferencePath: rootPath + apc.cFullDevConfigurationPath,
@@ -150,7 +153,7 @@ async function deployApplication() {
 
     // 2nd stage deploy-release process:
     console.log(app_msg.cReleasingFramework);
-    await haystacks.enqueueCommand(cmd.cFrameworkDetailsWorkflow);
+    await haystacks.enqueueCommand(app_cmd.cPluginDetailsWorkflow);
     while (await haystacks.isCommandQueueEmpty() === false) {
       await haystacks.processCommandQueue();
     } // End-while (haystacks.isCommandQueueEmpty() === false)

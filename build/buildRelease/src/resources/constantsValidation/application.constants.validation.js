@@ -20,6 +20,8 @@ import * as apc from '../../constants/application.constants.js';
 export const applicationConstantsValidation = [
   {Name: 'cExpectedActualFrameworkDevName', Actual: apc.cExpectedActualFrameworkDevName, Expected: 'haystacks-async'},
   {Name: 'cExpectedActualFrameworkProdName', Actual: apc.cExpectedActualFrameworkProdName, Expected: '@haystacks/async'},
+  {Name: 'cExpectedActualPluginDevName', Actual: apc.cExpectedActualPluginDevName, Expected: 'hayd-caf'},
+  {Name: 'cExpectedActualPluginProdName', Actual: apc.cExpectedActualPluginProdName, Expected: 'hayd-caf'},
   {Name: 'cApplicationName', Actual: apc.cApplicationName, Expected: 'buildRelease'},
   {Name: 'cAppDevPath', Actual: apc.cAppDevPath, Expected: '/src/'},
   {Name: 'cAppProdPath', Actual: apc.cAppProdPath, Expected: '/bin/'},

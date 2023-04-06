@@ -26,3 +26,4 @@ export const creleaseApplication = wrd.crelease + wrd.cApplication; // releaseAp
 // ********************************
 export const cBuildWorkflow = wrd.cWorkflow + bas.cSpace + wrd.cbuild; // Workflow build
 export const cReleaseWorkflow = wrd.cWorkflow + bas.cSpace + wrd.crelease; // Workflow release
+export const cPluginDetailsWorkflow = wrd.cWorkflow + bas.cSpace + wrd.cplugin + wrd.cDetails; // Workflow pluginDetails

@@ -31,5 +31,6 @@ export const applicationCommandConstantsValidation = [
   // Client Workflows in order
   // ********************************
   {Name: 'cBuildWorkflow', Actual: app_cmd.cBuildWorkflow, Expected: 'Workflow build'},
-  {Name: 'cReleaseWorkflow', Actual: app_cmd.cReleaseWorkflow, Expected: 'Workflow release'}
+  {Name: 'cReleaseWorkflow', Actual: app_cmd.cReleaseWorkflow, Expected: 'Workflow release'},
+  {Name: 'cPluginDetailsWorkflow', Actual: app_cmd.cPluginDetailsWorkflow, Expected: 'Workflow pluginDetails'}
 ];

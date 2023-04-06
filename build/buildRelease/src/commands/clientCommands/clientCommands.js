@@ -67,13 +67,22 @@ async function deployMetaData(inputData, inputMetaData) {
   await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputDataIs + JSON.stringify(inputData));
   await haystacks.consoleLog(namespacePrefix, functionName, msg.cinputMetaDataIs + inputMetaData);
   let returnData = [true, false];
+  let metaDataPath = '';
+  let publishingPlugin = false;
+  let metaDataPathAndFilename = '';
 
   // inputData.shift(); // Remove the first element of the array, because that is what is used to call this command.
   // @Reference: {@Link https://stackoverflow.com/questions/9153571/is-there-a-way-to-get-version-from-package-json-in-nodejs-code}
-  let frameworkMetaDataPathAndFilename = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cframeworkRootPath);
-  frameworkMetaDataPathAndFilename = frameworkMetaDataPathAndFilename + bas.cForwardSlash + sys.cpackageDotJson;
-  frameworkMetaDataPathAndFilename = path.resolve(frameworkMetaDataPathAndFilename);
-  let frameworkMetaData = await haystacks.executeBusinessRules([frameworkMetaDataPathAndFilename, false], [biz.cloadDataFile]);
+  let pluginMetaDataPathAndFilename = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cpluginRootPath);
+  if (pluginMetaDataPathAndFilename) {
+    metaDataPath = pluginMetaDataPathAndFilename;
+    publishingPlugin = true;
+  } else {
+    metaDataPath = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cframeworkRootPath);
+  }
+  metaDataPath = metaDataPath + bas.cForwardSlash + sys.cpackageDotJson;
+  metaDataPath = path.resolve(metaDataPath);
+  let frameworkMetaData = await haystacks.executeBusinessRules([metaDataPath, false], [biz.cloadDataFile]);
   let frameworkName = frameworkMetaData[wrd.cname];
   let frameworkVersion = frameworkMetaData[wrd.cversion];
   let frameworkDescription = frameworkMetaData[wrd.cdescription];
@@ -99,7 +108,11 @@ async function deployMetaData(inputData, inputMetaData) {
     await haystacks.setConfigurationSetting(wrd.csystem, sys.cFrameworkDescription, frameworkDescription);
   } // End-if (currentFrameworkVersion != frameworkVersion)
 
-  let metaDataPathAndFilename = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cframeworkResourcesPath);
+  if (publishingPlugin === true) {
+    metaDataPathAndFilename = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cpluginReleaseResourcesPath);
+  } else {
+    metaDataPathAndFilename = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cframeworkResourcesPath);
+  }
   metaDataPathAndFilename = path.resolve(metaDataPathAndFilename + sys.cmetaDatadotJson);
   // metaDataPathAndFilename is:
   await haystacks.consoleLog(namespacePrefix, functionName, msg.cmetaDataPathAndFilenameIs + metaDataPathAndFilename);
@@ -131,12 +144,28 @@ async function deployApplication(inputData, inputMetaData) {
   let passAllCommandAliasesDuplicateChecks = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cpassedAllCommandAliasesDuplicateChecks);
   let passAllWorkflowDuplicateChecks = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cpassedAllWorkflowDuplicateChecks);
 
+  // let passAllConstantsValidation = true;
+  // let passAllCommandAliasesDuplicateChecks = true;
+  // let passAllWorkflowDuplicateChecks = true;
+
   if (passAllConstantsValidation === true && passAllCommandAliasesDuplicateChecks === true && passAllWorkflowDuplicateChecks === true) {
     // DEPLOY APPLICATION
     console.log(msg.cDEPLOY_APPLICATION);
-    let frameworkRootPath = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cframeworkRootPath)
-    let sourcePath = frameworkRootPath + await haystacks.getConfigurationSetting(wrd.csystem, app_cfg.csourcePath);
-    let destinationPath = frameworkRootPath + await haystacks.getConfigurationSetting(wrd.csystem, app_cfg.cdestinationPath);
+    let rootPath = '';
+    let sourcePath = '';
+    let destinationPath = '';
+    if (await haystacks.getConfigurationSetting(wrd.csystem, sys.cPluginName) !== '') {
+      rootPath = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cpluginRootPath)
+      sourcePath = rootPath + await haystacks.getConfigurationSetting(wrd.csystem, app_cfg.csourcePath);
+      destinationPath = rootPath + await haystacks.getConfigurationSetting(wrd.csystem, app_cfg.cdestinationPath);
+    } else {
+      rootPath = await haystacks.getConfigurationSetting(wrd.csystem, cfg.cframeworkRootPath)
+      sourcePath = rootPath + await haystacks.getConfigurationSetting(wrd.csystem, app_cfg.csourcePath);
+      destinationPath = rootPath + await haystacks.getConfigurationSetting(wrd.csystem, app_cfg.cdestinationPath);
+    }
+    sourcePath = path.normalize(sourcePath);
+    destinationPath = path.normalize(destinationPath);
+
     // sourcePath is:
     await haystacks.consoleLog(namespacePrefix, functionName, app_msg.csourcePathIs + sourcePath);
     // destinationPath is:
