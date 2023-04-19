@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: constants/plugin.message.constants.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: constants/plugin.message.constants.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file plugin.message.constants.js
+ * @module plugin.message.constants
+ * @description Contains many re-usable plugin message constants.
+ * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
+ * @author Seth Hollingsead
+ * @date 2023/04/03
+ * @copyright Copyright © 2023-… by Seth Hollingsead. All rights reserved
+ */
+
+// Internal imports
+import * as plg_sys from './plugin.system.constants.js';
+// External imports
+import hayConst from '@haystacks/constants';
+const {bas, msg, num, sys, wrd} = hayConst;
+
+// Plugin message constants
+export const cpluginConstantsPathIs = wrd.cplugin + wrd.cConstants + wrd.cPath + sys.cSpaceIsColonSpace; // pluginConstantsPath is:
+
+// Constants Validation
+export const callPluginConstantsValidationDataIs = wrd.call + wrd.cPlugin + wrd.cConstants + wrd.cValidation + wrd.cData + sys.cSpaceIsColonSpace; // allClientConstantsValidationData is:
+export const cresolvedConstantsPath_PluginBusinessIs = plg_sys.cresolvedConstantsPath_Plugin + wrd.cBusiness + sys.cSpaceIsColonSpace; // resolvedConstantsPath_PluginBusiness is:
+export const cresolvedConstantsPath_PluginCommandIs = plg_sys.cresolvedConstantsPath_Plugin + wrd.cCommand + sys.cSpaceIsColonSpace; // resolvedConstantsPath_PluginCommand is:
+export const cresolvedConstantsPath_PluginConstantIs = plg_sys.cresolvedConstantsPath_Plugin + wrd.cConstant + sys.cSpaceIsColonSpace; // resolvedConstantsPath_PluginConstant is:
+export const cresolvedConstantsPath_PluginMessageIs = plg_sys.cresolvedConstantsPath_Plugin + wrd.cMessage + sys.cSpaceIsColonSpace; // resolvedConstantsPath_PluginMessage is:
+export const cresolvedConstantsPath_PluginSystemIs = plg_sys.cresolvedConstantsPath_Plugin + wrd.cSystem + sys.cSpaceIsColonSpace; // resolvedConstantsPath_PluginSystem is:
+
+export const cPluginBusinessConstantsPhase1Validation = wrd.cPlugin + bas.cSpace + wrd.cBusiness + bas.cSpace + wrd.cConstants + bas.cSpace + wrd.cPhase + bas.cSpace + num.c1 + bas.cSpace + wrd.cValidation; // Plugin Business Constants Phase 1 Validation
+export const cPluginCommandConstantsPhase1Validation = wrd.cPlugin + bas.cSpace + wrd.cCommand + bas.cSpace + wrd.cConstants + bas.cSpace + wrd.cPhase + bas.cSpace + num.c1 + bas.cSpace + wrd.cValidation; // Plugin Command Constants Phase 1 Validation
+export const cPluginConstantsPhase1Validation = wrd.cPlugin + bas.cSpace + wrd.cConstants + bas.cSpace + wrd.cPhase + bas.cSpace + num.c1 + bas.cSpace + wrd.cValidation; // Plugin Constants Phase 1 Validation
+export const cPluginMessageConstantsPhase1Validation = wrd.cPlugin + bas.cSpace + wrd.cMessage + bas.cSpace + wrd.cConstants + bas.cSpace + wrd.cPhase + bas.cSpace + num.c1 + bas.cSpace + wrd.cValidation; // Plugin Message Constants Phase 1 Validation
+export const cPluginSystemConstantsPhase1Validation = wrd.cPlugin + bas.cSpace + wrd.cSystem + bas.cSpace + wrd.cConstants + bas.cSpace + wrd.cPhase + bas.cSpace + num.c1 + bas.cSpace + wrd.cValidation; // Plugin System Constants Phase 1 Validation
+
+export const cPluginBusinessConstantsPhase2Validation = wrd.cPlugin + bas.cSpace + wrd.cBusiness + bas.cSpace + wrd.cConstants + bas.cSpace + wrd.cPhase + bas.cSpace + num.c2 + bas.cSpace + wrd.cValidation; // Plugin Business Constants Phase 2 Validation
+export const cPluginCommandConstantsPhase2Validation = wrd.cPlugin + bas.cSpace + wrd.cCommand + bas.cSpace + wrd.cConstants + bas.cSpace + wrd.cPhase + bas.cSpace + num.c2 + bas.cSpace + wrd.cValidation; // Plugin Command Constants Phase 2 Validation
+export const cPluginConstantsPhase2Validation = wrd.cPlugin + bas.cSpace + wrd.cConstants + bas.cSpace + wrd.cPhase + bas.cSpace + num.c2 + bas.cSpace + wrd.cValidation; // Plugin Constants Phase 2 Validation
+export const cPluginMessageConstantsPhase2Validation = wrd.cPlugin + bas.cSpace + wrd.cMessage + bas.cSpace + wrd.cConstants + bas.cSpace + wrd.cPhase + bas.cSpace + num.c2 + bas.cSpace + wrd.cValidation; // Plugin Message Constants Phase 2 Validation
+export const cPluginSystemConstantsPhase2Validation = wrd.cPlugin + bas.cSpace + wrd.cSystem + bas.cSpace + wrd.cConstants + bas.cSpace + wrd.cPhase + bas.cSpace + num.c2 + bas.cSpace + wrd.cValidation; // Plugin System Constants Phase 2 Validation</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-allPluginConstantsValidationMetadata.html">allPluginConstantsValidationMetadata</a></li><li><a href="module-chiefCommander.html">chiefCommander</a></li><li><a href="module-chiefConfiguration.html">chiefConfiguration</a></li><li><a href="module-chiefData.html">chiefData</a></li><li><a href="module-chiefRules.html">chiefRules</a></li><li><a href="module-chiefTheme.html">chiefTheme</a></li><li><a href="module-chiefWorkflow.html">chiefWorkflow</a></li><li><a href="module-commandBroker.html">commandBroker</a></li><li><a href="module-commandsLibrary.html">commandsLibrary</a></li><li><a href="module-dCafCommands.html">dCafCommands</a></li><li><a href="module-dataBroker.html">dataBroker</a></li><li><a href="module-loggers.html">loggers</a></li><li><a href="module-main.html">main</a></li><li><a href="module-pluginData.html">pluginData</a></li><li><a href="module-ruleBroker.html">ruleBroker</a></li><li><a href="module-rulesLibrary.html">rulesLibrary</a></li><li><a href="module-selectorConstruction.html">selectorConstruction</a></li><li><a href="module-warden.html">warden</a></li><li><a href="plugin.business.constants.module_validation.html">plugin.business.constants.validation</a></li><li><a href="plugin.business.module_constants.html">plugin.business.constants</a></li><li><a href="plugin.command.constants.module_validation.html">plugin.command.constants.validation</a></li><li><a href="plugin.command.module_constants.html">plugin.command.constants</a></li><li><a href="plugin.constants.module_validation.html">plugin.constants.validation</a></li><li><a href="plugin.message.constants.module_validation.html">plugin.message.constants.validation</a></li><li><a href="plugin.message.module_constants.html">plugin.message.constants</a></li><li><a href="plugin.module_constants.html">plugin.constants</a></li><li><a href="plugin.system.constants.module_validation.html">plugin.system.constants.validation</a></li><li><a href="plugin.system.module_constants.html">plugin.system.constants</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Apr 19 2023 11:36:18 GMT-0500 (Central Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
