@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><PluginWorkflows>
+  <debug>
+    <commandsBlob>
+      <commands>
+        <dCafCommands>
+          <Workflow Name="dCafCommandsEnable" Value="changeConfigSetting debugSetting.plugins.hayD-CAF.commandsBlob.commands.dCafCommands true"/>
+          <Workflow Name="dCafCommandsDisable" Value="changeConfigSetting debugSetting.plugins.hayD-CAF.commandsBlob.commands.dCafCommands false"/>
+          <Workflow Name="buildBrowserActionFunctionEnable" Value="changeConfigSetting debugSetting.plugins.hayD-CAF.commandsBlob.commands.dCafCommands.buildBrowserActionFunction true"/>
+          <Workflow Name="buildBrowserActionFunctionDisable" Value="changeConfigSetting debugSetting.plugins.hayD-CAF.commandsBlob.commands.dCafCommands.buildBrowserActionFunction false"/>
+        </dCafCommands>
+      </commands>
+    </commandsBlob>
+  </debug>
+</PluginWorkflows>
