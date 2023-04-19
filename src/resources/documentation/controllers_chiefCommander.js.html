@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: controllers/chiefCommander.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: controllers/chiefCommander.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file chiefCommander.js
+ * @module chiefCommander
+ * @description Contains all of the top-level functions to manage the commands for the plugin.
+ * @requires module:commandBroker
+ * @requires module:plugin.constants
+ * @requires module:chiefData
+ * @requires module:loggers
+ * @requires {@link https://www.npmjs.com/package/@haystacks/constants|@haystacks/constants}
+ * @requires {@link https://www.npmjs.com/package/path|path}
+ * @author Seth Hollingsead
+ * @date 2023/04/04
+ * @copyright Copyright © 2023-… by Seth Hollingsead. All rights reserved
+ */
+
+// Internal imports
+import commandBroker from '../brokers/commandBroker.js';
+import * as plg from '../constants/plugin.constants.js';
+import chiefData from './chiefData.js';
+import loggers from '../executrix/loggers.js';
+// External imports
+import hayConst from '@haystacks/constants';
+import path from 'path';
+
+const {bas, msg, wrd} = hayConst;
+const baseFileName = path.basename(import.meta.url, path.extname(import.meta.url));
+// plugins.hayD-CAF.controllers.chiefCommander.
+const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + wrd.ccontrollers + bas.cDot + baseFileName + bas.cDot;
+
+/**
+ * @function initCommands
+ * @description Initializes all of the commands for the plugin,
+ * so they can be loaded by the Haystacks platform and used by the application.
+ * @return {object} A JSON object that contains an array of function objects that map function name to function call for all of the commands.
+ * @author Seth Hollingsead
+ * @date 2023/04/04
+ */
+async function initCommands() {
+  // let functionName = initCommands.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  let returnData = {};
+  returnData = await commandBroker.bootStrapCommands();
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  return returnData;
+}
+
+/**
+ * @function setupCommandAliases
+ * @description Sets up all the plugin command aliases data.
+ * @param {string} pluginCommandAliasesPath The path of the command aliases files for the plugin layer.
+ * @return {object} A JSON object that contains all of the command aliases data loaded and parsed from the specified path.
+ * @author Seth Hollingsead
+ * @date 2023/04/04
+ */
+async function setupCommandAliases(pluginCommandAliasesPath) {
+  // let functionName = setupCommandAliases.name;
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cBEGIN_Function);
+  // pluginCommandAliasesPath is:
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginCommandAliasesPathIs + pluginCommandAliasesPath);
+  let returnData = {};
+  returnData = await chiefData.loadCommandAliasesData(pluginCommandAliasesPath);
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.creturnDataIs + JSON.stringify(returnData));
+  // await loggers.consoleLog(namespacePrefix + functionName, msg.cEND_Function);
+  return returnData;
+}
+
+export default {
+  initCommands,
+  setupCommandAliases
+};</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-allPluginConstantsValidationMetadata.html">allPluginConstantsValidationMetadata</a></li><li><a href="module-chiefCommander.html">chiefCommander</a></li><li><a href="module-chiefConfiguration.html">chiefConfiguration</a></li><li><a href="module-chiefData.html">chiefData</a></li><li><a href="module-chiefRules.html">chiefRules</a></li><li><a href="module-chiefTheme.html">chiefTheme</a></li><li><a href="module-chiefWorkflow.html">chiefWorkflow</a></li><li><a href="module-commandBroker.html">commandBroker</a></li><li><a href="module-commandsLibrary.html">commandsLibrary</a></li><li><a href="module-dCafCommands.html">dCafCommands</a></li><li><a href="module-dataBroker.html">dataBroker</a></li><li><a href="module-loggers.html">loggers</a></li><li><a href="module-main.html">main</a></li><li><a href="module-pluginData.html">pluginData</a></li><li><a href="module-ruleBroker.html">ruleBroker</a></li><li><a href="module-rulesLibrary.html">rulesLibrary</a></li><li><a href="module-selectorConstruction.html">selectorConstruction</a></li><li><a href="module-warden.html">warden</a></li><li><a href="plugin.business.constants.module_validation.html">plugin.business.constants.validation</a></li><li><a href="plugin.business.module_constants.html">plugin.business.constants</a></li><li><a href="plugin.command.constants.module_validation.html">plugin.command.constants.validation</a></li><li><a href="plugin.command.module_constants.html">plugin.command.constants</a></li><li><a href="plugin.constants.module_validation.html">plugin.constants.validation</a></li><li><a href="plugin.message.constants.module_validation.html">plugin.message.constants.validation</a></li><li><a href="plugin.message.module_constants.html">plugin.message.constants</a></li><li><a href="plugin.module_constants.html">plugin.constants</a></li><li><a href="plugin.system.constants.module_validation.html">plugin.system.constants.validation</a></li><li><a href="plugin.system.module_constants.html">plugin.system.constants</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Apr 19 2023 11:36:18 GMT-0500 (Central Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -18,7 +18,7 @@ import * as plg from '../constants/plugin.constants.js';
 import loggers from '../executrix/loggers.js';
 import D from '../structures/pluginData.js';
 // External imports
-import haystacks rom '@haystacks/async';
+import haystacks from '@haystacks/async';
 import hayConst from '@haystacks/constants';
 import path from 'path';
 
