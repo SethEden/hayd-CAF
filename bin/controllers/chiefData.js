@@ -15,7 +15,7 @@
 // Internal imports
 import dataBroker from '../brokers/dataBroker.js';
 import * as plg from '../constants/plugin.constants.js';
-import loggers from '../../executrix/loggers.js';
+import loggers from '../executrix/loggers.js';
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';
@@ -28,7 +28,7 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + w
 /**
  * @function initializeData
  * @description Initialize the data that will be used by
- * the plugin to oad all of the plugin content and export it to the Haystacks platform.
+ * the plugin to load all of the plugin content and export it to the Haystacks platform.
  * @return {void}
  * @author Seth Hollingsead
  * @date 2023/04/04
@@ -43,7 +43,7 @@ async function initializeData() {
 /**
  * @function loadConfigurationData
  * @description Loads the plugin configuration data by calling the Haystacks to
- * load and parse teh data from the specified path.
+ * load and parse the data from the specified path.
  * @param {string} configPath The fully qualified path to the configuration folder with all of the configuration data for the plugin.
  * @return {object} A JSON object that contains all of the configuration data loaded and parsed from the specified path.
  * @author Seth Hollingsead
@@ -65,8 +65,8 @@ async function loadConfigurationData(configPath) {
  * @function loadCommandAliasesData
  * @description Loads the plugin command aliases data by calling the Haystacks to
  * load and parse the data from the specified path.
- * @param {string} aliasesPath Teh fully qualified path to the command aliases folder with all of the command aliases data for the plugin.
- * @return {object} A JSON object that contains all of the command aliases data loaded and parsed from teh specified path.
+ * @param {string} aliasesPath The fully qualified path to the command aliases folder with all of the command aliases data for the plugin.
+ * @return {object} A JSON object that contains all of the command aliases data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2023/04/04
  */
@@ -85,7 +85,7 @@ async function loadCommandAliasesData(aliasesPath) {
 /**
  * @function loadWorkflowsData
  * @description Loads the plugin workflows data by calling the Haystacks to
- * load and parse teh data from the specified path.
+ * load and parse the data from the specified path.
  * @param {string} workflowsPath The fully qualified path to the workflows folder with all of the workflows data for the plugin.
  * @return {object} A JSON object that contains all of the workflows data loaded and parsed from the specified path.
  * @author Seth Hollingsead
@@ -105,7 +105,7 @@ async function loadWorkflowsData(workflowsPath) {
 
 /**
  * @function loadThemesData
- * @description Loads teh plugin themes data by calling the Haystacks to
+ * @description Loads the plugin themes data by calling the Haystacks to
  * load and parse the data from the specified path.
  * @param {string} themesPath The fully qualified path to the themes folder with all of the themes data for the plugin.
  * @return {object} A JSON object that contains all of the themes data loaded and parsed from the specified path.

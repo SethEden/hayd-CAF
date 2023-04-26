@@ -18,8 +18,8 @@
 import selectorConstruction from './rules/selectorConstruction.js';
 import * as plg_biz from '../constants/plugin.business.constants.js';
 import * as plg from '../constants/plugin.constants.js';
-import loggers from '../../executrix/loggers.js';
-import D from '../../structures/pluginData.js';
+import loggers from '../executrix/loggers.js';
+import D from '../structures/pluginData.js';
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';
@@ -31,7 +31,7 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + s
 
 /**
  * @function initPluginRulesLibrary
- * @description Initializes an objet map of plugin business rules and plugin function calls and returns them.
+ * @description Initializes an object map of plugin business rules and plugin function calls and returns them.
  * @return {object} A JSON object that contains an array of function objects that map function name to function call for all the business rules.
  * @author Seth Hollingsead
  * @date 2023/04/03
@@ -50,7 +50,7 @@ async function initPluginRulesLibrary() {
     // ***********************************************************************
     // BEGIN selectorConstruction category
     // ***********************************************************************
-    [plg_biz.cmapSelectorMetaDataToBusinessRule]: (inputData, inputMetaData) => pluginOneRules.mapSelectorMetaDataToBusinessRule(inputData, inputMetaData)
+    [plg_biz.cmapSelectorMetaDataToBusinessRule]: (inputData, inputMetaData) => selectorConstruction.mapSelectorMetaDataToBusinessRule(inputData, inputMetaData)
     // ***********************************************************************
     // END selectorConstruction category
     // ***********************************************************************

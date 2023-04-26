@@ -35,6 +35,10 @@ const namespacePrefix = wrd.cplugins + bas.cDot + plg.cpluginName + bas.cDot + s
  * inputData[2] === parent
  * inputData[n] === action (default/override)
  * @param {string} inputMetaData Not used for this command.
+ * @return {array<boolean,object>} An array that contains a boolean to indicate that the application should not exit,
+ * and a JSON object that contains data about the object after the change was made.
+ * @author Seth Hollingsead
+ * @date 2023/04/06
  */
 async function buildBrowserActionFunction(inputData, inputMetaData) {
   let functionName = buildBrowserActionFunction.name;
