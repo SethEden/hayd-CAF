@@ -18,7 +18,7 @@ const {bas, msg, num, sys, wrd} = hayConst;
 export const cpluginConstantsPathIs = wrd.cplugin + wrd.cConstants + wrd.cPath + sys.cSpaceIsColonSpace; // pluginConstantsPath is:
 
 // Constants Validation
-export const callPluginConstantsValidationDataIs = wrd.call + wrd.cPlugin + wrd.cConstants + wrd.cValidation + wrd.cData + sys.cSpaceIsColonSpace; // allClientConstantsValidationData is:
+export const callPluginConstantsValidationDataIs = wrd.call + wrd.cPlugin + wrd.cConstants + wrd.cValidation + wrd.cData + sys.cSpaceIsColonSpace; // allPluginConstantsValidationData is:
 export const cresolvedConstantsPath_PluginBusinessIs = plg_sys.cresolvedConstantsPath_Plugin + wrd.cBusiness + sys.cSpaceIsColonSpace; // resolvedConstantsPath_PluginBusiness is:
 export const cresolvedConstantsPath_PluginCommandIs = plg_sys.cresolvedConstantsPath_Plugin + wrd.cCommand + sys.cSpaceIsColonSpace; // resolvedConstantsPath_PluginCommand is:
 export const cresolvedConstantsPath_PluginConstantIs = plg_sys.cresolvedConstantsPath_Plugin + wrd.cConstant + sys.cSpaceIsColonSpace; // resolvedConstantsPath_PluginConstant is:
