@@ -23,7 +23,7 @@ export const pluginMessageConstantsValidation = [
   {Name: 'cpluginConstantsPathIs', Actual: plg_msg.cpluginConstantsPathIs, Expected: 'pluginConstantsPath is: '},
 
   // Constants Validation
-  {Name: 'callPluginConstantsValidationDataIs', Actual: plg_msg.callPluginConstantsValidationDataIs, Expected: 'allClientConstantsValidationData is: '},
+  {Name: 'callPluginConstantsValidationDataIs', Actual: plg_msg.callPluginConstantsValidationDataIs, Expected: 'allPluginConstantsValidationData is: '},
   {Name: 'cresolvedConstantsPath_PluginBusinessIs', Actual: plg_msg.cresolvedConstantsPath_PluginBusinessIs, Expected: 'resolvedConstantsPath_PluginBusiness is: '},
   {Name: 'cresolvedConstantsPath_PluginCommandIs', Actual: plg_msg.cresolvedConstantsPath_PluginCommandIs, Expected: 'resolvedConstantsPath_PluginCommand is: '},
   {Name: 'cresolvedConstantsPath_PluginConstantIs', Actual: plg_msg.cresolvedConstantsPath_PluginConstantIs, Expected: 'resolvedConstantsPath_PluginConstant is: '},
