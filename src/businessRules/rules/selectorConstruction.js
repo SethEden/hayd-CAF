@@ -22,7 +22,7 @@ const {bas, gen, msg, num, wrd} = hayConst;
  * @description Maps a selector meta-data name to an actual business rule name.
  * @param {string} inputData The Selector meta-data name business rule that should be converted to an actual business rule name.
  * @param {string} inputMetaData Not used for this business rule.
- * @return {string} A modified string that represents an actual busienss rule that can be executed by the system.
+ * @return {string} A modified string that represents an actual business rule that can be executed by the system.
  * @author Seth Hollingsead
  * @date 2023/04/03
  */

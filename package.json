@@ -1,6 +1,6 @@
 {
   "name": "hayd-caf",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Haystacks D-CAF: Distinguished Cloud Automation Framework is a web/cloud/SaaS/mobile GUI automation plugin that leverages a suite of business rules and a factory pattern to auto-generate functions and strings for logging that are used to execute test actions against HTML based graphical user interfaces. Actions like click, type text, mouse over, right click, debug, F-12 developer tools, browser back, browser refresh, etc. This is the foundational sub-system of a no-code testing automation framework.",
   "main": "./src/main.js",
   "type": "module",
@@ -33,8 +33,8 @@
   },
   "homepage": "https://github.com/SethEden/hayd-CAF#readme",
   "dependencies": {
-    "@haystacks/async": "^0.2.9",
-    "@haystacks/constants": "^0.2.9",
+    "@haystacks/async": "^0.2.10",
+    "@haystacks/constants": "^0.2.10",
     "dotenv": "^16.0.3",
     "moment": "^2.29.4"
   },

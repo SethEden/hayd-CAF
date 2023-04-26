@@ -22,7 +22,7 @@
 import * as plg from './constants/plugin.constants.js';
 import warden from './controllers/warden.js';
 import allPlgCV from './resources/constantsValidation/allPluginConstantsValidationMetadata.js';
-import loggers from '../executrix/loggers.js';
+import loggers from './executrix/loggers.js';
 import D from './structures/pluginData.js';
 // External imports
 import haystacks from '@haystacks/async';
@@ -80,7 +80,7 @@ const {NODE_ENV} = process.env;
  * Haystacks platform so it can be used at run-time to provide enhanced
  * capabilities to the application that loads this plugin.
  * @param {object} inputMetaData A JSON object that contains meta-data needed by the plugin.
- * In particular this contains a Haystacks context data objet that can be used to inject into a new instance of Haystacks,
+ * In particular this contains a Haystacks context data object that can be used to inject into a new instance of Haystacks,
  * such that the new instance of Haystacks will act and behave exactly like the host application instance of Haystacks.
  * Including being able to make calls back to Haystacks, for the purpose of loading and parsing files, or any number of other operations that need to be done.
  * @return {object} A JSON object that contains all of the data that the plugin

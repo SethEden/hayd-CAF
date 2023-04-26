@@ -21,7 +21,7 @@
  */
 
 // Internal imports
-import * as plg from '../src/constants/plugin.constants.js';
+import * as plg from '../constants/plugin.constants.js';
 import D from '../structures/pluginData.js';
 // External imports
 import hayConst from '@haystacks/constants';

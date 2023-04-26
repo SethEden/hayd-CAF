@@ -1,7 +1,7 @@
 /**
  * @file chiefRules.js
  * @module chiefRules
- * @description Contains all of the top-level functions to manage teh business rules for the plugin.
+ * @description Contains all of the top-level functions to manage the business rules for the plugin.
  * @requires module:ruleBroker
  * @requires module:plugin.constants
  * @requires module:loggers

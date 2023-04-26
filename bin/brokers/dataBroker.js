@@ -46,7 +46,7 @@ async function initData() {
  * @function loadConfigData
  * @description Calls the Haystacks platform to load the configuration data, parse it and return it as a JSON object.
  * @param {string} configPath The path to the plugin configuration data that must be loaded.
- * @return {object} A JSON object that contains all of the configuration data loaded and parsed from the psecified path.
+ * @return {object} A JSON object that contains all of the configuration data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2023/04/03
  */
@@ -63,7 +63,7 @@ async function loadConfigData(configPath) {
       if (await haystacks.accouterFramework(D[wrd.cdata][cfg.chaystacksContextObject]) === true) {
         // Done loading the Haystacks dependency data, now try and use Haystacks to load the config data, from the configPath.
         // await loggers.consoleLog(namespacePrefix + functionName, msg.cpluginLoadConfigDataMessage);
-        returnData = await haystacks.loadPluginResoureData(wrd.cconfiguration, configPath);
+        returnData = await haystacks.loadPluginResourceData(wrd.cconfiguration, configPath);
       } else {
         // FATAL ERROR: Unable to load the specified plugin config path, Haystacks framework data dependency failure:
         console.log(msg.cloadConfigDataErrorMessage01 + configPath);
@@ -126,8 +126,8 @@ async function loadWorkflowsData(workflowsPath) {
 /**
  * @function loadThemesData
  * @description Loads the plugin themes data by calling the Haystacks platform to
- * load and parse teh themes data from the specified path.
- * @param {string} themesPath The fully qualified path to the themes folder with allof the themes data for the plugin.
+ * load and parse the themes data from the specified path.
+ * @param {string} themesPath The fully qualified path to the themes folder with all of the themes data for the plugin.
  * @return {object} A JSON object that contains all of the themes paths data loaded and parsed from the specified path.
  * @author Seth Hollingsead
  * @date 2023/04/03

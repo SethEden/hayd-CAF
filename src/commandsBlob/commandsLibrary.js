@@ -18,8 +18,8 @@
 import dCafCommands from './commands/dCafCommands.js';
 import * as plg_cmd from '../constants/plugin.command.constants.js';
 import * as plg from '../constants/plugin.constants.js';
-import loggers from '../../executrix/loggers.js';
-import D from '../../structures/pluginData.js';
+import loggers from '../executrix/loggers.js';
+import D from '../structures/pluginData.js';
 // External imports
 import hayConst from '@haystacks/constants';
 import path from 'path';
@@ -50,7 +50,7 @@ async function initPluginCommandsLibrary() {
     // ***********************************************************************
     // BEGIN d-CafCommands category
     // ***********************************************************************
-    [plg_cmd.cbuildBrowserActionFunction]: (inputData, inputMetaData) => pluginOneCommands.buildBrowserActionFunction(inputData, inputMetaData)
+    [plg_cmd.cbuildBrowserActionFunction]: (inputData, inputMetaData) => dCafCommands.buildBrowserActionFunction(inputData, inputMetaData)
     // ***********************************************************************
     // END d-CafCommands category
     // ***********************************************************************

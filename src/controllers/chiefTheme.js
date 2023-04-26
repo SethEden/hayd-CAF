@@ -15,9 +15,9 @@
 // Internal imports
 import * as plg from '../constants/plugin.constants.js';
 import chiefData from './chiefData.js';
-import loggers from '../../executrix/loggers.js';
+import loggers from '../executrix/loggers.js';
 // External imports
-import hayConst from '@haystack/constants';
+import hayConst from '@haystacks/constants';
 import path from 'path';
 
 const {bas, biz, cfg, msg, sys, wrd} = hayConst;
